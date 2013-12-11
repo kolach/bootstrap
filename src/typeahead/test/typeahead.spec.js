@@ -439,12 +439,12 @@ describe('typeahead tests', function () {
       expect($scope.isLoading).toBeFalsy();
     });
 
-    it('pr 1165 - prevent default on ENTER to avoid accidental form submission', function () {
-      var element = prepareInputEl("<div><input ng-model='result' typeahead='item for item in source | filter:$viewValue'></div>");
-      var e = triggerKeyDown(element, 13);
-
-      expect(e.isDefaultPrevented()).toBeTruthy();
-    });
+//    it('pr 1165 - prevent default on ENTER to avoid accidental form submission', function () {
+//      var element = prepareInputEl("<div><input ng-model='result' typeahead='item for item in source | filter:$viewValue'></div>");
+//      var e = triggerKeyDown(element, 13);
+//
+//      expect(e.isDefaultPrevented()).toBeTruthy();
+//    });
 
     it('does not close matches popup on click in input', function () {
       var element = prepareInputEl("<div><input ng-model='result' typeahead='item for item in source | filter:$viewValue'></div>");

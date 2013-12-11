@@ -1,3 +1,8 @@
+# 0.7.0 (2013-12-11)
+
+- **typeahead:**
+   - commented out a block after //typeahead is open and an "interesting" key was pressed
+
 # 0.7.0 (2013-11-22)
 
 ## Features
