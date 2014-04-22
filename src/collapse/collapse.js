@@ -21,13 +21,17 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
     link: function(scope, element, attrs) {
 
       var isCollapsed;
-      var initialAnimSkip = true;
-
-      scope.$watch(attrs.collapse, function(value) {
-        if (value) {
-          collapse();
-        } else {
-          expand();
+      if (element.hasClass('collapse')) {
+        isCollapsed = true;
+      }
+      var initialAnimSkip = angular.isUndefined(attrs.hasInitialAnim);
+      scope.$watch(attrs.collapse, function(newVal) {
+        if (newVal != isCollapsed ) {
+          if (newVal) {
+            collapse();
+          } else {
+            expand();
+          }
         }
       });
       
