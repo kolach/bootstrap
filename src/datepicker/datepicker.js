@@ -259,7 +259,10 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.position'])
   closeText: 'Done',
   closeOnDateSelection: true,
   appendToBody: false,
-  showButtonBar: true
+  showButtonBar: true,
+  parser: function(viewValue) {
+    return new Date(viewValue);
+  }
 })
 
 .directive('datepickerPopup', ['$compile', '$parse', '$document', '$position', 'dateFilter', 'datepickerPopupConfig', 'datepickerConfig',
@@ -350,7 +353,10 @@ function ($compile, $parse, $document, $position, dateFilter, datepickerPopupCon
           ngModel.$setValidity('date', true);
           return viewValue;
         } else if (angular.isString(viewValue)) {
-          var date = new Date(viewValue);
+
+//          var date = new Date(viewValue);
+          var date = datepickerPopupConfig.parser(viewValue);
+
           if (isNaN(date)) {
             ngModel.$setValidity('date', false);
             return undefined;
